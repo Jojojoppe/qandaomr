@@ -17,7 +17,7 @@ jobs:
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
-        pip install -r requirements.txt
+        pip install .
     - name: Lint with flake8
       run: |
         pip install flake8
@@ -30,7 +30,7 @@ jobs:
         scripts/omr -c test/test1_in.png test/test1_out.png 1 10 6 5
     - name: Test OMR -r
       run: |
-        ANS=$(scripts/omr -r test/test2.png)
+        ANS=$(scripts/omr -r test/test2_in.png)
         if [ $ANS != "0,1,2,3,4,5,0,1,2,3,4,5,0,1,2,3,4,5,0,1,2,3,4,5,0,1,2,3,4,5,0,1,2,3,4,5,0,1,2,3,4,5,0,1,2,3,4,5,0,1," ]; then
             exit 1
         fi
