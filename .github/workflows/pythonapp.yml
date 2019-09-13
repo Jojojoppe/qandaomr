@@ -25,12 +25,18 @@ jobs:
         flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
         # exit-zero treats all errors as warnings. The GitHub editor is 127 chars wide
         flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
-    - name: Test OMR -c
+    - name: Test OMR -c test1
       run: |
         scripts/omr -c test/test1_in.png test/test1_out.png 1 10 6 5
-    - name: Test OMR -r
+    - name: Test OMR -r test2
       run: |
         ANS=$(scripts/omr -r test/test2_in.png)
+        if [ $ANS != "0,1,2,3,4,5,0,1,2,3,4,5,0,1,2,3,4,5,0,1,2,3,4,5,0,1,2,3,4,5,0,1,2,3,4,5,0,1,2,3,4,5,0,1,2,3,4,5,0,1," ]; then
+            exit 1
+        fi
+    - name: Test OMR -r test3
+      run: |
+        ANS=$(scripts/omr -r test/test3_in.png)
         if [ $ANS != "0,1,2,3,4,5,0,1,2,3,4,5,0,1,2,3,4,5,0,1,2,3,4,5,0,1,2,3,4,5,0,1,2,3,4,5,0,1,2,3,4,5,0,1,2,3,4,5,0,1," ]; then
             exit 1
         fi
