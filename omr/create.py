@@ -20,7 +20,7 @@ import argparse
 import urllib.request
 from os import remove
 
-from parser import *
+from .parser import *
 
 def create(fi, fo, col, row, bcol, brow, debug):
 

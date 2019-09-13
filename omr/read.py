@@ -21,7 +21,7 @@ import argparse
 import zxing
 from os import remove
 
-from parser import *
+from .parser import *
 
 def read(fi, debug):
     fo = 'out.jpg'
