@@ -1,0 +1,5 @@
+omr
+opencv-python
+numpy
+argparse
+zxing
