@@ -5,7 +5,7 @@ with open("README.md", 'r') as f:
 
 setup(
     name='omr',
-    version='1.0',
+    version='1.1',
     description='Python and OpenCV OMR (optical mark recognition)',
     long_description=long_description,
     author='Joppe Blondel',

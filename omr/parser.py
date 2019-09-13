@@ -18,7 +18,7 @@ import cv2
 import numpy as np
 import math
 
-SQUARE_TOLERANCE = 0.15
+SQUARE_TOLERANCE = 0.2
 PLACE_TOLERANCE = 5
 DIV_TOLERANCE = 0.1
 A4_SCALE = 1.41
@@ -202,7 +202,12 @@ def prepare_image(f, debug):
                     square_midX.append(cX)
                     square_midY.append(cY)
                     cv2.circle(img, (cX, cY), 10, (0, 255, 255), -1)
+                else:
+                    cv2.drawContours(img, [c], 0, (0, 255, 0), 4)
         i += 1
+
+    if debug:
+        cv2.imwrite('conrners.jpg', img)
 
     if j!=4:
         print("Found more or less than 4 corners: " + str(j))
