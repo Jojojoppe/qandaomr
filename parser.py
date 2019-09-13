@@ -159,7 +159,7 @@ def prepare_image_create(f):
     img_gray = img_gray[0:h, 0:w]
     return transform, img, img_gray
 
-def prepare_image(f):
+def prepare_image(f, debug):
     img = cv2.imread(f)
     img_gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
     ret, img_th = cv2.threshold(img_gray, 127, 255, 0)
@@ -269,7 +269,8 @@ def prepare_image(f):
         [w, h],
         [0, h]], dtype = "float32")
 
-    cv2.imwrite('temp.jpg', img)
+    if debug:
+        cv2.imwrite('temp.jpg', img)
 
     transform = cv2.getPerspectiveTransform(src, dst)
     img = cv2.warpPerspective(img, transform, (width, height))

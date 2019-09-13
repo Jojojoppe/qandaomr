@@ -1,0 +1,50 @@
+#!/usr/bin/env python
+
+# OMR - Optical mark regognition
+# Copyright (C) 2019 Joppe Blondel
+#
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program.  If not, see <https://www.gnu.org/licenses/>.
+
+import argparse
+
+from read import *
+from create import *
+
+version = "1.0"
+
+def main():
+    args = parser.parse_args()
+
+    if args.version:
+        print("OMR " + version)
+
+    if args.c != None:
+        create(args.c[0], args.c[1], int(args.c[2]), int(args.c[3]), int(args.c[4]), int(args.c[5]), args.d)
+
+    if args.r != None:
+        read(args.r[0], args.d)
+
+if __name__ == "__main__":
+    parser = argparse.ArgumentParser(
+        description = 'OMR - Optical Mark Recognition',
+        formatter_class = argparse.RawDescriptionHelpFormatter,
+        epilog = 'OMR - Optical Mark Recognition Copyright (C) 2019 Joppe Blondel\r\n'
+            'This program comes with ABSOLUTELY NO WARRANTY')
+
+    parser.add_argument('-c', nargs=6, help='Create an OMR enabled sheet. \'-c in out col row block_col block_row\'')
+    parser.add_argument('-r', nargs=1, help='Read an OMR enabled sheet. \'-r in\'')
+    parser.add_argument('-d', action='store_true', help='DEBUG: store intermediate files in current directory')
+    parser.add_argument('-v', '--version', action='store_true', help='Show version')
+
+    main()

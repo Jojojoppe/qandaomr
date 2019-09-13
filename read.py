@@ -13,17 +13,21 @@
 #
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
+
 import cv2
 import numpy as np
 import math
 import argparse
 import zxing
+from os import remove
 
 from parser import *
 
-def read(fi, fo):
+def read(fi, debug):
+    fo = 'out.jpg'
+
     # Load image and create thresholded image img_th
-    img, img_gray = prepare_image(fi)
+    img, img_gray = prepare_image(fi, debug)
     height, width = img.shape[:2]
 
     # Read barcodes from bottom
@@ -37,6 +41,10 @@ def read(fi, fo):
     res2 = reader.decode('bc2.png').raw
     b1 = res1.split(';')
     b2 = res2.split(';')
+
+    if debug==False:
+        remove('bc1.png')
+        remove('bc2.png')
 
     # Barcode 1 data
     b1_ver = int(b1[0])
@@ -87,5 +95,6 @@ def read(fi, fo):
                 print(ans, end=',')
 
     print("")
-    cv2.imwrite(fo, img)
+    if debug:
+        cv2.imwrite(fo, img)
 

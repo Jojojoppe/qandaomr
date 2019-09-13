@@ -18,13 +18,15 @@ import cv2
 import numpy as np
 import argparse
 import urllib.request
+from os import remove
 
 from parser import *
 
-def create(fi, fo, col, row, bcol, brow):
+def create(fi, fo, col, row, bcol, brow, debug):
 
     transform, doc, _ = prepare_image_create(fi)
-    #cv2.imwrite('doc.png', doc)
+    if debug:
+        cv2.imwrite('transformed.png', doc)
     height, width = doc.shape[:2]
 
     # Create red and green only masks
@@ -143,7 +145,8 @@ def create(fi, fo, col, row, bcol, brow):
     bc1 = ';'.join(b1).replace(" ", "")
     bc2 = ';'.join(b2).replace(" ", "")
 
-    #cv2.imwrite('doc.png', doc)
+    if debug:
+        cv2.imwrite('doc.png', doc)
 
     # Create barcodes
     bc1 = bc1.replace(';','%3B')
@@ -155,6 +158,10 @@ def create(fi, fo, col, row, bcol, brow):
     bc1_height, bc1_width = bc1.shape[:2]
     bc2 = cv2.imread('bc2.png')
     bc2_height, bc2_width = bc2.shape[:2]
+
+    if debug==False:
+        remove('bc1.png')
+        remove('bc2.png')
 
     # Copy new barcodes over old ones
     oheight, owidth = out.shape[:2]
