@@ -20,7 +20,7 @@ import argparse
 
 from qandaomr import *
 
-version = "1.2"
+version = "1.2.1"
 
 def main():
     args = parser.parse_args()
