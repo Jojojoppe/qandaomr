@@ -18,15 +18,15 @@
 
 import argparse
 
-from omr import *
+from qandaomr import *
 
-version = "1.1"
+version = "1.2"
 
 def main():
     args = parser.parse_args()
 
     if args.version:
-        print("OMR " + version)
+        print("Q&A OMR " + version)
 
     if args.c != None:
         create(args.c[0], args.c[1], int(args.c[2]), int(args.c[3]), int(args.c[4]), int(args.c[5]), args.d)
@@ -36,10 +36,10 @@ def main():
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(
-        description = 'OMR - Optical Mark Recognition',
+        description = 'Q&A OMR - Optical Mark Recognition',
         formatter_class = argparse.RawDescriptionHelpFormatter,
-        epilog = 'OMR - Optical Mark Recognition Copyright (C) 2019 Joppe Blondel\r\n'
-            'This program comes with ABSOLUTELY NO WARRANTY')
+        epilog = 'Q&A OMR v%s - Optical Mark Recognition Copyright (C) 2019 Joppe Blondel\r\n'
+            'This program comes with ABSOLUTELY NO WARRANTY'%version)
 
     parser.add_argument('-c', nargs=6, help='Create an OMR enabled sheet. \'-c in out col row block_col block_row\'')
     parser.add_argument('-r', nargs=1, help='Read an OMR enabled sheet. \'-r in\'')
