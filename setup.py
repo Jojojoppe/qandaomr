@@ -25,7 +25,7 @@ setup(
         'Programming Language :: Python :: 3.7',
   ],
 
-    packages=['omr'],
+    packages=['qandaomr'],
     licence='GNU General Public License v3 (GPLv3)',
     install_requires=['opencv-python', 'numpy', 'argparse', 'zxing'],
     scripts=['scripts/qandaomr']

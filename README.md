@@ -26,13 +26,10 @@ For debug purposes the `-d` flag can be used. This will generate multiple images
 ## Installation
 To install this package clone this repository and install via pip:
 ```
-git clone https://github.com/Jojojoppe/OMR.git
-cd OMR
-pip install .
+pip install qandaomr
 ```
 
 Uninstalling can be done via pip:
 ```
-pip uninstall omr
+pip uninstall qandaomr
 ```
-*Note: this package is not (yet) registered ad PyPi meaning that other packages may exist with this name!*
