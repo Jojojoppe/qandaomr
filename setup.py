@@ -5,12 +5,12 @@ with open("README.md", 'r') as f:
 
 setup(
     name='qandaomr',
-    version='1.2.2',
+    version='1.2.3',
     description='Q&A Python and OpenCV OMR (optical mark recognition)',
 
     author='Joppe Blondel',
     author_email='joppe@blondel.nl',
-    download_url='https://github.com/Jojojoppe/qandaomr/archive/v1.2.1.tar.gz',
+    download_url='https://github.com/Jojojoppe/qandaomr/archive/v1.2.3.tar.gz',
     url='https://github.com/Jojojoppe/qandaomr',
 
     keywords = ['OMR', 'Optical Mark Recognition',],

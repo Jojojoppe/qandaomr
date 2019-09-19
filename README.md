@@ -10,14 +10,14 @@ To create an OMR enabled form you must make a form (with Word, LaTeX or similar 
 
 Running the following will generate a printable output sheet with barcodes at the bottom which OMR uses to detect the settings
 ```
-omr -c input_file output_file columns rows points_per_question questions_per_block
+qandaomr -c input_file output_file columns rows points_per_question questions_per_block
 ```
 ![Created omr form](/img/form_r.png)
 
 ### Reading an OMR form
 To get the answers back from the form a scanned image can be the input to OMR. OMR will print the answers to the terminal in a CSV format.
 ```
-omr -r input_file
+qandaomr -r input_file
 ```
 
 ### Generating intermediate files
