@@ -1,4 +1,4 @@
-omr
+qandaomr
 opencv-python
 numpy
 argparse
